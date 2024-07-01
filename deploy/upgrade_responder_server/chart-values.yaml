@@ -50,8 +50,8 @@ configMap:
           ]
         },
         {
-          "name": "v1.6.1",
-          "releaseDate": "2024-03-28T00:00:00Z",
+          "name": "v1.6.2",
+          "releaseDate": "2024-05-22T00:00:00Z",
           "tags": [
             "latest",
             "stable"
@@ -219,6 +219,10 @@ configMap:
           "maxLen": 200
         },
         "longhornSettingV2DataEngine": {
+          "dataType": "string",
+          "maxLen": 200
+        },
+        "longhornSettingFreezeFilesystemForSnapshot"
           "dataType": "string",
           "maxLen": 200
         }
@@ -391,6 +395,9 @@ configMap:
           "dataType": "float"
         },
         "longhornVolumeUnmapMarkSnapChainRemovedFalseCount": {
+          "dataType": "float"
+        },
+        "longhornVolumeFreezeFilesystemForSnapshotTrueCount": {
           "dataType": "float"
         }
       }

@@ -65,6 +65,7 @@ metadata:
 data:
   default-setting.yaml: |-
     priority-class: longhorn-critical
+    disable-revision-counter: true
 ---
 # Source: longhorn/templates/storageclass.yaml
 apiVersion: v1
@@ -95,6 +96,7 @@ data:
       fsType: "ext4"
       dataLocality: "disabled"
       unmapMarkSnapChainRemoved: "ignored"
+      disableRevisionCounter: "true"
 ---
 # Source: longhorn/templates/crds.yaml
 apiVersion: apiextensions.k8s.io/v1
@@ -226,6 +228,7 @@ spec:
                 - upload
                 - export-from-volume
                 - restore
+                - clone
                 type: string
               uuid:
                 type: string
@@ -555,6 +558,10 @@ spec:
                 additionalProperties:
                   type: string
                 type: object
+              secret:
+                type: string
+              secretNamespace:
+                type: string
               sourceParameters:
                 additionalProperties:
                   type: string
@@ -565,6 +572,7 @@ spec:
                 - upload
                 - export-from-volume
                 - restore
+                - clone
                 type: string
             type: object
           status:
@@ -860,6 +868,13 @@ spec:
           spec:
             description: BackupSpec defines the desired state of the Longhorn backup
             properties:
+              backupMode:
+                description: The backup mode of this backup. Can be "full" or "incremental"
+                enum:
+                - full
+                - incremental
+                - ""
+                type: string
               labels:
                 additionalProperties:
                   type: string
@@ -903,12 +918,18 @@ spec:
                 description: The error messages when calling longhorn engine on listing or inspecting backups.
                 nullable: true
                 type: object
+              newlyUploadDataSize:
+                description: Size in bytes of newly uploaded data
+                type: string
               ownerID:
                 description: The node ID on which the controller is responsible to reconcile this backup CR.
                 type: string
               progress:
                 description: The snapshot backup progress.
                 type: integer
+              reUploadedDataSize:
+                description: Size in bytes of reuploaded data
+                type: string
               replicaAddress:
                 description: The address of the replica that runs snapshot backup.
                 type: string
@@ -2653,6 +2674,11 @@ spec:
               name:
                 description: The recurring job name.
                 type: string
+              parameters:
+                additionalProperties:
+                  type: string
+                description: The parameters of the snapshot/backup.
+                type: object
               retain:
                 description: The retain count of the snapshot/backup.
                 type: integer
@@ -2671,6 +2697,9 @@ spec:
           status:
             description: RecurringJobStatus defines the observed state of the Longhorn recurring job
             properties:
+              executionCount:
+                description: The number of jobs that have been triggered.
+                type: integer
               ownerID:
                 description: The owner ID which is responsible to reconcile this recurring job CR.
                 type: string
@@ -3802,6 +3831,13 @@ spec:
               engineImage:
                 description: 'Deprecated: Replaced by field `image`.'
                 type: string
+              freezeFilesystemForSnapshot:
+                description: Setting that freezes the filesystem on the root partition before a snapshot is created.
+                enum:
+                - ignored
+                - enabled
+                - disabled
+                type: string
               fromBackup:
                 type: string
               frontend:
@@ -3966,6 +4002,8 @@ spec:
                     items:
                       properties:
                         podName:
+                          type: string
+                        podNamespace:
                           type: string
                         podStatus:
                           type: string
@@ -4351,38 +4389,6 @@ spec:
     port: 9503
     targetPort: recov-backend
 ---
-# Source: longhorn/templates/services.yaml
-apiVersion: v1
-kind: Service
-metadata:
-  labels:
-    app.kubernetes.io/name: longhorn
-    app.kubernetes.io/instance: longhorn
-    app.kubernetes.io/version: v1.6.0-dev
-  name: longhorn-engine-manager
-  namespace: longhorn-system
-spec:
-  clusterIP: None
-  selector:
-    longhorn.io/component: instance-manager
-    longhorn.io/instance-manager-type: engine
----
-# Source: longhorn/templates/services.yaml
-apiVersion: v1
-kind: Service
-metadata:
-  labels:
-    app.kubernetes.io/name: longhorn
-    app.kubernetes.io/instance: longhorn
-    app.kubernetes.io/version: v1.6.0-dev
-  name: longhorn-replica-manager
-  namespace: longhorn-system
-spec:
-  clusterIP: None
-  selector:
-    longhorn.io/component: instance-manager
-    longhorn.io/instance-manager-type: replica
----
 # Source: longhorn/templates/daemonset-sa.yaml
 apiVersion: apps/v1
 kind: DaemonSet
@@ -4425,7 +4431,7 @@ spec:
         - --backing-image-manager-image
         - "longhornio/backing-image-manager:master-head"
         - --support-bundle-manager-image
-        - "longhornio/support-bundle-kit:v0.0.37"
+        - "longhornio/support-bundle-kit:v0.0.38"
         - --manager-image
         - "longhornio/longhorn-manager:master-head"
         - --service-account
@@ -4468,6 +4474,10 @@ spec:
           valueFrom:
             fieldRef:
               fieldPath: spec.nodeName
+      - name: pre-pull-share-manager-image
+        imagePullPolicy: IfNotPresent
+        image: longhornio/longhorn-share-manager:master-head
+        command: ["sh", "-c", "echo share-manager image pulled && sleep infinity"]
       volumes:
       - name: dev
         hostPath:
