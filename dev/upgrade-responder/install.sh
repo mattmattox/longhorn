@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 UPGRADE_RESPONDER_REPO="https://github.com/longhorn/upgrade-responder.git"
 UPGRADE_RESPONDER_REPO_BRANCH="master"
@@ -31,7 +31,7 @@ wait_for_deployment() {
     fi
 
     elapsed_secs=$(($(date +%s) - ${start_time}))
-    if [[ ${elapsed_secs} -ge ${timeout_secs} ]]; then
+    if [[ ${elapsed_secs} -ge ${DEPLOYMENT_TIMEOUT_SEC} ]]; then
       echo "Timed out waiting for deployment ${deployment_name} to be running."
       exit 1
     fi
@@ -60,6 +60,10 @@ secret:
   influxDBUrl: "${INFLUXDB_URL}"
   influxDBUser: "root"
   influxDBPassword: "root"
+flags:
+  scarfEndpoint:
+    - "https://longhorn.gateway.scarf.sh/{version}"
+    - "https://longhorn.gateway.scarf.sh/{version}/{longhornDistro}"  
 configMap:
   responseConfig: |-
     {
@@ -76,6 +80,10 @@ configMap:
         "maxLen": 200
       },
       "extraTagInfoSchema": {
+        "hostArch": {
+          "dataType": "string",
+          "maxLen": 200
+        },
         "hostKernelRelease": {
           "dataType": "string",
           "maxLen": 200
@@ -89,6 +97,10 @@ configMap:
           "maxLen": 200
         },
         "kubernetesVersion": {
+          "dataType": "string",
+          "maxLen": 200
+        },
+        "longhornImageRegistry": {
           "dataType": "string",
           "maxLen": 200
         },
@@ -116,10 +128,6 @@ configMap:
           "dataType": "string",
           "maxLen": 200
         },
-        "longhornSettingBackupTarget": {
-          "dataType": "string",
-          "maxLen": 200
-        },
         "longhornSettingCrdApiVersion": {
           "dataType": "string",
           "maxLen": 200
@@ -144,6 +152,10 @@ configMap:
           "dataType": "string",
           "maxLen": 200
         },
+        "longhornSettingFreezeFilesystemForSnapshot": {
+          "dataType": "string",
+          "maxLen": 200
+        },
         "longhornSettingKubernetesClusterAutoscalerEnabled": {
           "dataType": "string",
           "maxLen": 200
@@ -156,11 +168,7 @@ configMap:
           "dataType": "string",
           "maxLen": 200
         },
-        "longhornSettingOfflineReplicaRebuilding": {
-          "dataType": "string",
-          "maxLen": 200
-        },
-        "longhornSettingOrphanAutoDeletion": {
+        "longhornSettingOrphanResourceAutoDeletion": {
           "dataType": "string",
           "maxLen": 200
         },
@@ -196,6 +204,10 @@ configMap:
           "dataType": "string",
           "maxLen": 200
         },
+        "longhornSettingRwxVolumeFastFailover": {
+          "dataType": "string",
+          "maxLen": 200
+        },
         "longhornSettingSnapshotDataIntegrity": {
           "dataType": "string",
           "maxLen": 200
@@ -209,6 +221,10 @@ configMap:
           "maxLen": 200
         },
         "longhornSettingStorageNetwork": {
+          "dataType": "string",
+          "maxLen": 200
+        },
+        "longhornSettingEndpointNetworkForRWXVolume": {
           "dataType": "string",
           "maxLen": 200
         },
@@ -231,13 +247,97 @@ configMap:
         "longhornSettingV2DataEngine": {
           "dataType": "string",
           "maxLen": 200
+        },
+        "longhornV2DataEngineHugepageEnabled": {
+          "dataType": "string",
+          "maxLen": 200
+        },
+        "longhornV2DataEngineInterruptModeEnabled": {
+          "dataType": "string",
+          "maxLen": 200
+        },
+        "longhornV2DataEngineCPUIsolationEnabled": {
+          "dataType": "string",
+          "maxLen": 200
+        },
+        "longhornDistro": {
+          "dataType": "string",
+          "maxLen": 200
+        },
+        "longhornSettingDefaultUblkQueueDepth": {
+          "dataType": "string",
+          "maxLen": 200
+        },
+        "longhornSettingDefaultUblkNumberOfQueue": {
+          "dataType": "string",
+          "maxLen": 200
+        },
+        "longhornSettingReplicaRebuildConcurrentSyncLimit": {
+          "dataType": "string",
+          "maxLen": 200
+        },
+        "longhornSettingDefaultNvmeTcpNrIoQueues": {
+          "dataType": "string",
+          "maxLen": 200
+        },
+        "longhornSettingAllowInstanceManagerAutomaticUpgrade": {
+          "dataType": "string",
+          "maxLen": 200
         }
       },
       "extraFieldInfoSchema": {
+        "longhornBackingImageCount": {
+          "dataType": "float"
+        },
+        "longhornBackupTargetAzblobCount": {
+          "dataType": "float"
+        },
+        "longhornBackupTargetCifsCount": {
+          "dataType": "float"
+        },
+        "longhornBackupTargetNfsCount": {
+          "dataType": "float"
+        },
+        "longhornBackupTargetS3Count": {
+          "dataType": "float"
+        },
+        "longhornBackupTargetUnknownCount": {
+          "dataType": "float"
+        },
         "longhornDiskBlockCount": {
           "dataType": "float"
         },
         "longhornDiskFilesystemCount": {
+          "dataType": "float"
+        },
+        "longhornBlockTypeDiskDriverAioCount": {
+          "dataType": "float"
+        },
+        "longhornBlockTypeDiskDriverNvmeCount": {
+          "dataType": "float"
+        },
+        "longhornBlockTypeDiskDriverVirtioScsiCount": {
+          "dataType": "float"
+        },
+        "longhornBlockTypeDiskDriverVirtioBlkCount": {
+          "dataType": "float"
+        },
+        "longhornBlockTypeDiskDriverVirtioPciCount": {
+          "dataType": "float"
+        },
+        "longhornV2DataEngineCpuCores": {
+          "dataType": "float"
+        },
+        "longhornV2DataEngineHugepageSize": {
+          "dataType": "float"
+        },
+        "longhornV2DataEngineIobufSmallPoolSize": {
+          "dataType": "float"
+        },
+        "longhornV2DataEngineIobufLargePoolSize": {
+          "dataType": "float"
+        },
+        "longhornV2DataEngineNumberOfCPUCores": {
           "dataType": "float"
         },
         "longhornInstanceManagerAverageCpuUsageMilliCores": {
@@ -268,6 +368,9 @@ configMap:
         "longhornNodeDiskSSDCount": {
           "dataType": "float"
         },
+        "longhornOrphanCount": {
+          "dataType": "float"
+        },
         "longhornSettingBackingImageCleanupWaitInterval": {
           "dataType": "float"
         },
@@ -278,6 +381,9 @@ configMap:
           "dataType": "float"
         },
         "longhornSettingBackupstorePollInterval": {
+          "dataType": "float"
+        },
+        "longhornSettingBackupBlockSize": {
           "dataType": "float"
         },
         "longhornSettingConcurrentAutomaticEngineUpgradePerNodeLimit": {
@@ -298,10 +404,10 @@ configMap:
         "longhornSettingFailedBackupTtl": {
           "dataType": "float"
         },
-        "longhornSettingGuaranteedInstanceManagerCpu": {
+        "longhornSettingReplicaRebuildingBandwidthLimit": {
           "dataType": "float"
         },
-        "longhornSettingV2DataEngineGuaranteedInstanceManagerCpu": {
+        "longhornSettingGuaranteedInstanceManagerCpu": {
           "dataType": "float"
         },
         "longhornSettingRecurringFailedJobsHistoryLimit": {
@@ -340,6 +446,51 @@ configMap:
         "longhornVolumeAccessModeUnknownCount": {
           "dataType": "float"
         },
+        "longhornVolumeDataEngineV1Count": {
+          "dataType": "float"
+        },
+        "longhornVolumeDataEngineV2Count": {
+          "dataType": "float"
+        },
+        "longhornVolumeDataEngineAllCount": {
+          "dataType": "float"
+        },
+        "longhornVolumeSizeLessThan1GiBCount": {
+          "dataType": "float"
+        },
+        "longhornVolumeSize1To2GiBCount": {
+          "dataType": "float"
+        },
+        "longhornVolumeSize2To5GiBCount": {
+          "dataType": "float"
+        },
+        "longhornVolumeSize5To10GiBCount": {
+          "dataType": "float"
+        },
+        "longhornVolumeSize10To20GiBCount": {
+          "dataType": "float"
+        },
+        "longhornVolumeSize20To50GiBCount": {
+          "dataType": "float"
+        },
+        "longhornVolumeSize50To100GiBCount": {
+          "dataType": "float"
+        },
+        "longhornVolumeSize100To200GiBCount": {
+          "dataType": "float"
+        },
+        "longhornVolumeSize200To500GiBCount": {
+          "dataType": "float"
+        },
+        "longhornVolumeSize500GiBTo1TiBCount": {
+          "dataType": "float"
+        },
+        "longhornVolumeSize1To2TiBCount": {
+          "dataType": "float"
+        },
+        "longhornVolumeSizeGt2TiBCount": {
+          "dataType": "float"
+        },
         "longhornVolumeAverageActualSizeBytes": {
           "dataType": "float"
         },
@@ -367,16 +518,25 @@ configMap:
         "longhornVolumeDataLocalityStrictLocalCount": {
           "dataType": "float"
         },
+        "longhornVolumeEncryptedTrueCount": {
+          "dataType": "float"
+        },
+        "longhornVolumeEncryptedFalseCount": {
+          "dataType": "float"
+        },
+        "longhornFreezeFilesystemForSnapshotTrueCount": {
+          "dataType": "float"
+        },
         "longhornVolumeFrontendBlockdevCount": {
           "dataType": "float"
         },
         "longhornVolumeFrontendIscsiCount": {
           "dataType": "float"
         },
-        "longhornVolumeOfflineReplicaRebuildingDisabledCount": {
+        "longhornVolumeNumberOfReplicas": {
           "dataType": "float"
         },
-        "longhornVolumeOfflineReplicaRebuildingEnabledCount": {
+        "longhornVolumeNumberOfSnapshots": {
           "dataType": "float"
         },
         "longhornVolumeReplicaAutoBalanceDisabledCount": {
@@ -401,6 +561,27 @@ configMap:
           "dataType": "float"
         },
         "longhornVolumeUnmapMarkSnapChainRemovedFalseCount": {
+          "dataType": "float"
+        },
+        "longhornSettingOrphanResourceAutoDeletionGracePeriod": {
+          "dataType": "float"
+        },
+        "longhornSettingSnapshotHeavyTaskConcurrentLimit": {
+          "dataType": "float"
+        },
+        "longhornSettingSupportBundleNodeCollectionTimeout": {
+          "dataType": "float"
+        },
+        "longhornSettingReplicaAutoBalanceDiskPressurePercentage": {
+          "dataType": "float"
+        },
+        "longhornSettingConcurrentBackingImageReplenishPerNodeLimit": {
+          "dataType": "float"
+        },
+        "longhornSettingDefaultMinNumberOfBackingImageCopies": {
+          "dataType": "float"
+        },
+        "longhornSettingDefaultBackupBlockSize": {
           "dataType": "float"
         }
       }

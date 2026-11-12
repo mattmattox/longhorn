@@ -6,6 +6,7 @@
 
 <div align="center">
 
+[![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/longhorn/longhorn/badge)](https://scorecard.dev/viewer/?uri=github.com/longhorn/longhorn)
 [![Releases](https://img.shields.io/github/release/longhorn/longhorn/all.svg)](https://github.com/longhorn/longhorn/releases)
 [![GitHub](https://img.shields.io/github/license/longhorn/longhorn)](https://github.com/longhorn/longhorn/blob/master/LICENSE)
 [![Docs](https://img.shields.io/badge/docs-latest-green.svg)](https://longhorn.io/docs/latest/)
@@ -37,14 +38,21 @@ You can read more technical details of Longhorn [here](https://longhorn.io/).
 
 https://github.com/longhorn/longhorn/releases
 
-| Release   | Latest Version | Stable Versions       | Release Note                                                   | Important Note                                              | Supported          |
-|-----------|-----------------|----------------------|----------------------------------------------------------------|-------------------------------------------------------------| -------------------|
-| **1.6***  | 1.6.1           | 1.6.1 | [🔗](https://github.com/longhorn/longhorn/releases/tag/v1.6.1) | [🔗](https://longhorn.io/docs/1.6.0/deploy/important-notes) | ✅                 |
-| **1.5***  | 1.5.5           | 1.5.5, 1.5.4, 1.5.3 | [🔗](https://github.com/longhorn/longhorn/releases/tag/v1.5.5) | [🔗](https://longhorn.io/docs/1.5.5/deploy/important-notes) | ✅                 |
-| 1.4       | 1.4.4           | 1.4.4, 1.4.3, 1.4.2, 1.4.1 | [🔗](https://github.com/longhorn/longhorn/releases/tag/v1.4.4) | [🔗](https://longhorn.io/docs/1.4.4/deploy/important-notes) |                    |
-| 1.3       | 1.3.3           | 1.3.3, 1.3.2 | [🔗](https://github.com/longhorn/longhorn/releases/tag/v1.3.3) | [🔗](https://longhorn.io/docs/1.3.3/deploy/important-notes) |                    |
-| 1.2       | 1.2.6           | 1.2.6, 1.2.5, 1.2.4, 1.2.3, 1.2.2 | [🔗](https://github.com/longhorn/longhorn/releases/tag/v1.2.6) | [🔗](https://longhorn.io/docs/1.2.6/deploy/important-notes) |                    |
-| 1.1       | 1.1.3           | 1.1.3, 1.1.2 | [🔗](https://github.com/longhorn/longhorn/releases/tag/v1.1.3) |                                                             |                    |
+| Release   | Latest Version  | Stable Versions                   | Release Note                                                    | Important Note                                               | Active |
+|-----------|-----------------|-----------------------------------|-----------------------------------------------------------------|--------------------------------------------------------------|--------|
+| **1.13*** | 1.13.0          |                                   | [🔗](https://github.com/longhorn/longhorn/releases/tag/v1.13.0) | [🔗](https://longhorn.io/docs/1.13.0/important-notes)        | ✅     |
+| **1.12*** | 1.12.2          | 1.12.1                            | [🔗](https://github.com/longhorn/longhorn/releases/tag/v1.12.2) | [🔗](https://longhorn.io/docs/1.12.2/important-notes)        | ✅     |
+| 1.11.     | 1.11.3          | 1.11.3                            | [🔗](https://github.com/longhorn/longhorn/releases/tag/v1.11.3) | [🔗](https://longhorn.io/docs/1.11.3/important-notes)        |        |
+| 1.10      | 1.10.2          | 1.10.2                            | [🔗](https://github.com/longhorn/longhorn/releases/tag/v1.10.2) | [🔗](https://longhorn.io/docs/archives/1.10.2/important-notes) |        |
+| 1.9       | 1.9.2           | 1.9.2                             | [🔗](https://github.com/longhorn/longhorn/releases/tag/v1.9.2)  | [🔗](https://longhorn.io/docs/archives/1.9.2/important-notes) |        |
+| 1.8       | 1.8.2           | 1.8.2                             | [🔗](https://github.com/longhorn/longhorn/releases/tag/v1.8.2)  | [🔗](https://longhorn.io/docs/archives/1.8.2/important-notes) |        |
+| 1.7       | 1.7.3           | 1.7.3, 1.7.2, 1.7.1               | [🔗](https://github.com/longhorn/longhorn/releases/tag/v1.7.3)  | [🔗](https://longhorn.io/docs/archives/1.7.3/important-notes) |        |
+| 1.6       | 1.6.4           | 1.6.4, 1.6.3, 1.6.2, 1.6.1        | [🔗](https://github.com/longhorn/longhorn/releases/tag/v1.6.4)  | [🔗](https://longhorn.io/docs/1.6.4/deploy/important-notes)  |        |
+| 1.5       | 1.5.5           | 1.5.5, 1.5.4, 1.5.3               | [🔗](https://github.com/longhorn/longhorn/releases/tag/v1.5.5)  | [🔗](https://longhorn.io/docs/1.5.5/deploy/important-notes)  |        |
+| 1.4       | 1.4.4           | 1.4.4, 1.4.3, 1.4.2, 1.4.1        | [🔗](https://github.com/longhorn/longhorn/releases/tag/v1.4.4)  | [🔗](https://longhorn.io/docs/1.4.4/deploy/important-notes)  |        |
+| 1.3       | 1.3.3           | 1.3.3, 1.3.2                      | [🔗](https://github.com/longhorn/longhorn/releases/tag/v1.3.3)  | [🔗](https://longhorn.io/docs/1.3.3/deploy/important-notes)  |        |
+| 1.2       | 1.2.6           | 1.2.6, 1.2.5, 1.2.4, 1.2.3, 1.2.2 | [🔗](https://github.com/longhorn/longhorn/releases/tag/v1.2.6)  | [🔗](https://longhorn.io/docs/1.2.6/deploy/important-notes)  |        |
+| 1.1       | 1.1.3           | 1.1.3, 1.1.2                      | [🔗](https://github.com/longhorn/longhorn/releases/tag/v1.1.3)  |                                                              |        |
 
 # Roadmap
 
@@ -54,12 +62,13 @@ https://github.com/longhorn/longhorn/wiki/Roadmap
 
 Longhorn is 100% open-source software. Project source code is spread across several repositories:
 
-* Engine: [![Build Status](https://drone-publish.longhorn.io/api/badges/longhorn/longhorn-engine/status.svg)](https://drone-publish.longhorn.io/longhorn/longhorn-engine)[![Go Report Card](https://goreportcard.com/badge/github.com/longhorn/longhorn-engine)](https://goreportcard.com/report/github.com/longhorn/longhorn-engine)[![FOSSA Status](https://app.fossa.com/api/projects/custom%2B25850%2Fgithub.com%2Flonghorn%2Flonghorn-engine.svg?type=shield)](https://app.fossa.com/projects/custom%2B25850%2Fgithub.com%2Flonghorn%2Flonghorn-engine?ref=badge_shield)
-* Manager: [![Build Status](https://drone-publish.longhorn.io/api/badges/longhorn/longhorn-manager/status.svg)](https://drone-publish.longhorn.io/longhorn/longhorn-manager)[![Go Report Card](https://goreportcard.com/badge/github.com/longhorn/longhorn-manager)](https://goreportcard.com/report/github.com/longhorn/longhorn-manager)[![FOSSA Status](https://app.fossa.com/api/projects/custom%2B25850%2Fgithub.com%2Flonghorn%2Flonghorn-manager.svg?type=shield)](https://app.fossa.com/projects/custom%2B25850%2Fgithub.com%2Flonghorn%2Flonghorn-manager?ref=badge_shield)
-* Instance Manager: [![Build Status](http://drone-publish.longhorn.io/api/badges/longhorn/longhorn-instance-manager/status.svg)](http://drone-publish.longhorn.io/longhorn/longhorn-instance-manager)[![Go Report Card](https://goreportcard.com/badge/github.com/longhorn/longhorn-instance-manager)](https://goreportcard.com/report/github.com/longhorn/longhorn-instance-manager)[![FOSSA Status](https://app.fossa.com/api/projects/custom%2B25850%2Fgithub.com%2Flonghorn%2Flonghorn-instance-manager.svg?type=shield)](https://app.fossa.com/projects/custom%2B25850%2Fgithub.com%2Flonghorn%2Flonghorn-instance-manager?ref=badge_shield)
-* Share Manager: [![Build Status](http://drone-publish.longhorn.io/api/badges/longhorn/longhorn-share-manager/status.svg)](http://drone-publish.longhorn.io/longhorn/longhorn-share-manager)[![Go Report Card](https://goreportcard.com/badge/github.com/longhorn/longhorn-share-manager)](https://goreportcard.com/report/github.com/longhorn/longhorn-share-manager)[![FOSSA Status](https://app.fossa.com/api/projects/custom%2B25850%2Fgithub.com%2Flonghorn%2Flonghorn-share-manager.svg?type=shield)](https://app.fossa.com/projects/custom%2B25850%2Fgithub.com%2Flonghorn%2Flonghorn-share-manager?ref=badge_shield)
-* Backing Image Manager: [![Build Status](http://drone-publish.longhorn.io/api/badges/longhorn/backing-image-manager/status.svg)](http://drone-publish.longhorn.io/longhorn/backing-image-manager)[![Go Report Card](https://goreportcard.com/badge/github.com/longhorn/backing-image-manager)](https://goreportcard.com/report/github.com/longhorn/backing-image-manager)[![FOSSA Status](https://app.fossa.com/api/projects/custom%2B25850%2Fgithub.com%2Flonghorn%2Fbacking-image-manager.svg?type=shield)](https://app.fossa.com/projects/custom%2B25850%2Fgithub.com%2Flonghorn%2Fbacking-image-manager?ref=badge_shield)
-* UI: [![Build Status](https://drone-publish.longhorn.io/api/badges/longhorn/longhorn-ui/status.svg)](https://drone-publish.longhorn.io/longhorn/longhorn-ui)[![FOSSA Status](https://app.fossa.com/api/projects/custom%2B25850%2Fgithub.com%2Flonghorn%2Flonghorn-ui.svg?type=shield)](https://app.fossa.com/projects/custom%2B25850%2Fgithub.com%2Flonghorn%2Flonghorn-ui?ref=badge_shield)
+* Manager: [![Build Status](https://github.com/longhorn/longhorn-manager/actions/workflows/build.yml/badge.svg)](https://github.com/longhorn/longhorn-manager/actions/workflows/build.yml)[![Go Report Card](https://goreportcard.com/badge/github.com/longhorn/longhorn-manager)](https://goreportcard.com/report/github.com/longhorn/longhorn-manager)[![FOSSA Status](https://app.fossa.com/api/projects/custom%2B162%2Flonghorn-manager.svg?type=shield&issueType=license)](https://app.fossa.com/projects/custom%2B162%2Flonghorn-manager?ref=badge_shield&issueType=license)
+* Instance Manager: [![Build Status](https://github.com/longhorn/longhorn-instance-manager/actions/workflows/build.yml/badge.svg)](https://github.com/longhorn/longhorn-instance-manager/actions/workflows/build.yml)[![Go Report Card](https://goreportcard.com/badge/github.com/longhorn/longhorn-instance-manager)](https://goreportcard.com/report/github.com/longhorn/longhorn-instance-manager)[![FOSSA Status](https://app.fossa.com/api/projects/custom%2B162%2Flonghorn-instance-manager.svg?type=shield&issueType=license)](https://app.fossa.com/projects/custom%2B162%2Flonghorn-instance-manager?ref=badge_shield&issueType=license)
+* Engine: [![Build Status](https://github.com/longhorn/longhorn-engine/actions/workflows/build.yml/badge.svg)](https://github.com/longhorn/longhorn-engine/actions/workflows/build.yml)[![Go Report Card](https://goreportcard.com/badge/github.com/longhorn/longhorn-engine)](https://goreportcard.com/report/github.com/longhorn/longhorn-engine)[![FOSSA Status](https://app.fossa.com/api/projects/custom%2B162%2Flonghorn-engine.svg?type=shield&issueType=license)](https://app.fossa.com/projects/custom%2B162%2Flonghorn-engine?ref=badge_shield&issueType=license)
+* Share Manager: [![Build Status](https://github.com/longhorn/longhorn-share-manager/actions/workflows/build.yml/badge.svg)](https://github.com/longhorn/longhorn-share-manager/actions/workflows/build.yml)[![Go Report Card](https://goreportcard.com/badge/github.com/longhorn/longhorn-share-manager)](https://goreportcard.com/report/github.com/longhorn/longhorn-share-manager)[![FOSSA Status](https://app.fossa.com/api/projects/custom%2B162%2Flonghorn-share-manager.svg?type=shield&issueType=license)](https://app.fossa.com/projects/custom%2B162%2Flonghorn-share-manager?ref=badge_shield&issueType=license)
+* Backing Image Manager: [![Build Status](https://github.com/longhorn/backing-image-manager/actions/workflows/build.yml/badge.svg)](https://github.com/longhorn/backing-image-manager/actions/workflows/build.yml)[![Go Report Card](https://goreportcard.com/badge/github.com/longhorn/backing-image-manager)](https://goreportcard.com/report/github.com/longhorn/backing-image-manager)[![FOSSA Status](https://app.fossa.com/api/projects/custom%2B162%2Flonghorn-backing-image-manager.svg?type=shield&issueType=license)](https://app.fossa.com/projects/custom%2B162%2Flonghorn-backing-image-manager?ref=badge_shield&issueType=license)
+* UI: [![Build Status](https://github.com/longhorn/longhorn-ui/actions/workflows/build.yml/badge.svg)](https://github.com/longhorn/longhorn-ui/actions/workflows/build.yml)[![FOSSA Status](https://app.fossa.com/api/projects/custom%2B162%2Flonghorn-ui.svg?type=shield&issueType=license)](https://app.fossa.com/projects/custom%2B162%2Flonghorn-ui?ref=badge_shield&issueType=license)
+* CLI: [![build](https://github.com/longhorn/cli/actions/workflows/build.yml/badge.svg)](https://github.com/longhorn/cli/actions/workflows/build.yml)[![FOSSA Status](https://app.fossa.com/api/projects/custom%2B162%2Flonghorn-cli.svg?type=shield&issueType=license)](https://app.fossa.com/projects/custom%2B162%2Flonghorn-cli?ref=badge_shield&issueType=license)
 
 | Component                      | What it does                                                           | GitHub repo                                                                                 |
 | :----------------------------- | :--------------------------------------------------------------------- | :------------------------------------------------------------------------------------------ |
@@ -68,6 +77,8 @@ Longhorn is 100% open-source software. Project source code is spread across seve
 | Longhorn Manager               | Longhorn orchestration, includes CSI driver for Kubernetes             | [longhorn/longhorn-manager](https://github.com/longhorn/longhorn-manager)                   |
 | Longhorn Share Manager         | NFS provisioner that exposes Longhorn volumes as ReadWriteMany volumes | [longhorn/longhorn-share-manager](https://github.com/longhorn/longhorn-share-manager)       |
 | Longhorn UI                    | The Longhorn dashboard                                                 | [longhorn/longhorn-ui](https://github.com/longhorn/longhorn-ui)                             |
+| Longhorn CLI                    | Command Line Interface for Longhorn                                   | [longhorn/cli](https://github.com/longhorn/cli)                           |
+
 
 | Library                        | What it does                                                           | GitHub repo                                                                                 |
 | :----------------------------- | :--------------------------------------------------------------------- | :------------------------------------------------------------------------------------------ |
@@ -75,7 +86,7 @@ Longhorn is 100% open-source software. Project source code is spread across seve
 | Longhorn SPDK Engine           | V2 Core controller/replica logic                                       | [longhorn/longhorn-spdk-engine](https://github.com/longhorn/longhorn-spdk-engine)           |
 | iSCSI Helper                   | V1 iSCSI client and server libraries                                   | [longhorn/go-iscsi-helper](https://github.com/longhorn/go-iscsi-helper)                     |
 | SPDK Helper                    | V2 SPDK client and server libraries                                    | [longhorn/go-spdk-helper](https://github.com/longhorn/go-spdk-helper)                       |
-| Backup Store                   | Backkup libraries                                                      | [longhorn/backupstore](https://github.com/longhorn/backupstore)                             |
+| Backup Store                   | Backup libraries                                                      | [longhorn/backupstore](https://github.com/longhorn/backupstore)                             |
 | Common Libraries               |                                                                        | [longhorn/go-common-libs](https://github.com/longhorn/go-common-libs)                       |
 
 ![Longhorn UI](./longhorn-ui.png)
@@ -126,22 +137,28 @@ Longhorn is open-source software, so contributions are greatly welcome.
 Please read [Code of Conduct](./CODE_OF_CONDUCT.md) and [Contributing Guideline](./CONTRIBUTING.md) before contributing.
 
 Contributing code is not the only way of contributing. We value feedback very much and many of the Longhorn features originated from users' feedback.
-If you have any feedback, feel free to [file an issue](https://github.com/longhorn/longhorn/issues/new/choose) and talk to the developers at the [CNCF](https://slack.cncf.io/) [#longhorn](https://cloud-native.slack.com/messages/longhorn) Slack channel.
+If you have any feedback, feel free to [file an issue](https://github.com/longhorn/longhorn/issues/new/choose).
 
-If you are having any discussion, feedback, requests, issues, or security reports, please follow the below ways.
-We also have a [CNCF Slack channel: longhorn](https://cloud-native.slack.com/messages/longhorn) for discussion.
+## Slack
+
+You can also provide feedback or join the conversation with other developers, users, and contributors on the [CNCF](https://slack.cncf.io/) [#longhorn](https://cloud-native.slack.com/messages/longhorn) Slack channel.
+This is a good place to learn about Longhorn, ask questions, and share your experiences.
 
 ## Community Meeting and Office Hours
-Hosted by the core maintainers of Longhorn: 4th Friday of every month at 09:00 (CET) or 16:00 (CST) at https://community.cncf.io/longhorn-community/.
+
+We host a monthly community meeting on the **3rd Thursday**, alternating between *AMER/EU-friendly* and *APAC-friendly times* - at **4 PM UTC** and **6 AM UTC** respectively. 
+
+Everyone is welcome to join us. You can find the calendar invite [here](https://zoom-lfx.platform.linuxfoundation.org/meetings/longhorn?view=list)
 
 ## Longhorn Mailing List
-Stay up to date on the latest news and events: https://lists.cncf.io/g/cncf-longhorn
 
-You can read more about the community and its events here: https://github.com/longhorn/community
+Subscribe to our [developer](https://lists.cncf.io/g/cncf-longhorn-dev) and [users](https://lists.cncf.io/g/cncf-longhorn-users) to stay updated with the latest news and events.
+
+You can read more about our community and its events here: https://github.com/longhorn/community
 
 # License
 
-Copyright (c) 2014-2022 The Longhorn Authors
+Copyright (c) 2014-2026 The Longhorn Authors
 
 Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at
 
